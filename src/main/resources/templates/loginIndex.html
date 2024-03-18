@@ -1,0 +1,246 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <head th:replace="fragments/header :: header" />
+  <meta charset="utf-8">
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.6/examples/blog/">
+
+  <link href="/css/blog.css" rel="stylesheet">
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+
+
+  <!-- Custom styles for this template -->
+  <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+  <header class="blog-header py-3">
+    <div class="row flex-nowrap justify-content-between align-items-center">
+      <div class="col-2 pt-1">
+        <a class="text-muted" href="/items">Items</a>
+      </div>
+      <div class="col-2 pt-1">
+        <a class="text-muted" href="/orders">Orders</a>
+      </div>
+      <div class="col-4 text-center">
+        <a class="blog-header-logo text-dark" href="#">Shop</a>
+      </div>
+      <div class="col-4 d-flex justify-content-end align-items-center">
+        <span th:text="|${member.name}님, 환영합니다.|"></span>
+        <a class="btn btn-sm btn-outline-secondary ml-3" href="/logout">logout</a>
+      </div>
+    </div>
+  </header>
+  <div class="nav-scroller py-1 mb-2">
+    <nav class="nav d-flex justify-content-between">
+      <a class="p-2 text-muted" href="#" th:text="#{label.book}">도서</a>
+      <a class="p-2 text-muted" href="#" th:text="#{label.album}">앨범</a>
+      <a class="p-2 text-muted" href="#" th:text="#{label.movie}">영화</a>
+      <a class="p-2 text-muted" href="#" th:text="#{label.health}">헬스</a>
+    </nav>
+  </div>
+
+  <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
+    <div class="col-md-6 px-0">
+      <h1 class="display-4 font-italic" th:text="#{label.jumbotron.h1}">다양한 물건을 취급하고 있습니다.</h1>
+      <p class="lead my-3" th:text="#{label.jumbotron.p}">저렴한 가격으로 다양한 상품들을 만나보세요!</p>
+      <p class="lead mb-0"><a href="/items/new" class="text-info font-weight-bold" th:text="#{label.jumbotron.link}">보러가기...</a></p>
+    </div>
+  </div>
+
+<!--  앨범 시작 -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 blog-main">
+        <h3 class="pb-3 mb-4 border-bottom" th:text="#{label.book}">
+          도서
+        </h3>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-2">
+    <div class="col-md-6">
+      <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-danger">Hot</strong>
+          <h3 class="mb-0">순서파괴</h3>
+          <div class="mb-1 text-muted">Nov 12</div>
+          <p class="card-text mb-auto">아마존의 CEO 제프 베이조스의 이야기</p>
+          <a href="/items/2" class="stretched-link">Continue reading</a>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+            <img src="images/working_backwards.jpg" alt="" width="200" height="250">
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-success">New</strong>
+          <h3 class="mb-0">리팩토링 2판</h3>
+          <div class="mb-1 text-muted">Nov 11</div>
+          <p class="mb-auto">읽기 쉽고 유지보수성이 좋은 코드를 설계하고 싶으신가요? 바로 이 책을 읽어보세요</p>
+          <a href="/items/1" class="stretched-link">Continue reading</a>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+          <img src="images/refactoring.jpg" alt="" width="200" height="250">
+        </div>
+      </div>
+    </div>
+  </div>
+<!--  앨범 끝-->
+
+  <!--  앨범 시작 -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 blog-main">
+        <h3 class="pb-3 mb-4 border-bottom" th:text="#{label.album}">
+          앨범
+        </h3>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-2">
+    <div class="col-md-6">
+      <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-danger">Hot</strong>
+          <h3 class="mb-0">순서파괴</h3>
+          <div class="mb-1 text-muted">Nov 12</div>
+          <p class="card-text mb-auto">아마존의 CEO 제프 베이조스의 이야기</p>
+          <a href="/items/2" class="stretched-link">Continue reading</a>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+          <img src="images/순서파괴.png" alt="" width="200" height="250">
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-success">New</strong>
+          <h3 class="mb-0">리팩터링 2판</h3>
+          <div class="mb-1 text-muted">Nov 11</div>
+          <p class="mb-auto">읽기 쉽고 유지보수성이 좋은 코드를 설계하고 싶으신가요? 바로 이 책을 읽어보세요</p>
+          <a href="/items/1" class="stretched-link">Continue reading</a>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+          <img src="images/리팩터링.png" alt="" width="200" height="250">
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--  앨범 끝-->
+
+  <!--  앨범 시작 -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 blog-main">
+        <h3 class="pb-3 mb-4 border-bottom" th:text="#{label.movie}">
+          영화
+        </h3>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-2">
+    <div class="col-md-6">
+      <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-danger">Hot</strong>
+          <h3 class="mb-0">순서파괴</h3>
+          <div class="mb-1 text-muted">Nov 12</div>
+          <p class="card-text mb-auto">아마존의 CEO 제프 베이조스의 이야기</p>
+          <a href="#" class="stretched-link">Continue reading</a>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+          <img src="images/working_backwards.jpg" alt="" width="200" height="250">
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-success">New</strong>
+          <h3 class="mb-0">리팩토링 2판</h3>
+          <div class="mb-1 text-muted">Nov 11</div>
+          <p class="mb-auto">읽기 쉽고 유지보수성이 좋은 코드를 설계하고 싶으신가요? 바로 이 책을 읽어보세요</p>
+          <a href="#" class="stretched-link">Continue reading</a>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+          <img src="images/refactoring.jpg" alt="" width="200" height="250">
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--  앨범 끝-->
+
+
+  <!--  앨범 시작 -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 blog-main">
+        <h3 class="pb-3 mb-4 border-bottom" th:text="#{label.health}">
+          헬스
+        </h3>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-2">
+    <div class="col-md-6">
+      <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-danger">Hot</strong>
+          <h3 class="mb-0">순서파괴</h3>
+          <div class="mb-1 text-muted">Nov 12</div>
+          <p class="card-text mb-auto">아마존의 CEO 제프 베이조스의 이야기</p>
+          <a href="#" class="stretched-link">Continue reading</a>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+          <img src="images/working_backwards.jpg" alt="" width="200" height="250">
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-success">New</strong>
+          <h3 class="mb-0">리팩토링 2판</h3>
+          <div class="mb-1 text-muted">Nov 11</div>
+          <p class="mb-auto">읽기 쉽고 유지보수성이 좋은 코드를 설계하고 싶으신가요? 바로 이 책을 읽어보세요</p>
+          <a href="#" class="stretched-link">Continue reading</a>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+          <img src="images/refactoring.jpg" alt="" width="200" height="250">
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--  앨범 끝-->
+
+  <div th:replace="fragments/footer :: footer" />
+</div>
+
+
+</body>
+</html>

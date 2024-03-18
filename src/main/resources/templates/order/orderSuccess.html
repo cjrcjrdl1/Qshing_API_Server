@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header" />
+<link href="/css/blog.css" rel="stylesheet">
+<body>
+<div class="container">
+  <div th:replace="fragments/bodyHeader :: bodyHeader"/>
+  <div class="card">
+    <img src="/images/check.png" class="card-img-top" alt="..." width="300" height="600">
+    <div class="card-body text-center">
+      <h5 class="card-title">상품 주문성공</h5>
+      <p class="card-text" th:text="|${book.name}를 구매하셨습니다.|">상품을 구입해주셔서 감사합니다.</p>
+      <p class="card-text">상품을 구입해주셔서 감사합니다.</p>
+      <a href="/" class="btn btn-primary">홈으로</a>
+    </div>
+  </div>
+  <div th:replace="fragments/footer :: footer" />
+</div> <!-- /container -->
+</body>
+</html>
