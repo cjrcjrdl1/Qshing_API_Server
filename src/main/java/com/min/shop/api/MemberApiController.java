@@ -22,7 +22,9 @@ public class MemberApiController {
     public CreateAddressResponse saveAddress(@RequestBody @Valid CreateAddressRequest request) {
         Address address = new Address();
         address.setAddress(request.getAddress());
-
+        //안전한지 아닌지 판단하는 로직 필요(백단에서 구현)
+        //GPS 판단 로직 필요 (프론트에서 받아와야 할 듯)
+        
         String name = addressService.join(address);
         return new CreateAddressResponse(name);
     }

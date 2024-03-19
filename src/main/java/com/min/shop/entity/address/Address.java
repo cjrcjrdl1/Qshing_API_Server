@@ -17,4 +17,10 @@ public class Address {
     private Long id;
 
     private String address;
+
+    // 안전한지 여부
+    private boolean isSafe;
+
+    // GPS
+    private String gps;
 }
