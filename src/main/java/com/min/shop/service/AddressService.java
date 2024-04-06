@@ -2,14 +2,9 @@ package com.min.shop.service;
 
 import com.min.shop.entity.address.Address;
 import com.min.shop.entity.address.AddressRepository;
-import com.min.shop.entity.member.Member;
-import com.min.shop.entity.member.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -23,6 +18,43 @@ public class AddressService {
     public String join(Address address) {
         addressRepository.save(address);
         return address.getAddress();
+    }
+
+    public Address findByAddress(String address) {
+        return addressRepository.findByName(address);
+    }
+
+    @Transactional
+    public String isRisk(String address) {
+        Address real = findByAddress(address);
+        String status = "NO";
+        if (isWarning(real)) {
+            real.setRisk("YES");
+            status = "Warning site";
+        }
+
+        if (address.matches(isIP())) {
+            real.setRisk("YES");
+            status = "Warning site";
+        }
+
+        if (status.equals("NO")) {
+            real.setRisk("NO");
+            return "Safe site";
+        }
+
+        return status;
+    }
+
+    private static String isIP() {
+        return "^(https?://)?([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\." +
+                "([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\." +
+                "([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\." +
+                "([01]?\\d\\d?|2[0-4]\\d|25[0-5])$";
+    }
+
+    private static boolean isWarning(Address real) {
+        return !real.getAddress().toLowerCase().startsWith("https://");
     }
 //    //전체 회원 조회
 //    public List<Member> findMembers() {

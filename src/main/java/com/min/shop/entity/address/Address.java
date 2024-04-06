@@ -18,9 +18,10 @@ public class Address {
 
     private String address;
 
-    // 안전한지 여부
-    private boolean isSafe;
-
     // GPS
     private String gps;
+
+    // 안전한지 여부
+    private String risk;
+
 }
