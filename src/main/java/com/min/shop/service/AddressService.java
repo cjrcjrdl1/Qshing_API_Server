@@ -46,6 +46,10 @@ public class AddressService {
         return status;
     }
 
+//    public String findGps(String gps) {
+//
+//    }
+
     private static String isIP() {
         return "^(https?://)?([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\." +
                 "([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\." +

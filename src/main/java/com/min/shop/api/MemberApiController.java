@@ -14,20 +14,29 @@ import org.springframework.web.bind.annotation.RestController;
 public class MemberApiController {
 
     private final AddressService addressService;
+    private final GeoService geoService;
 
     @PostMapping("/api/address")
     public CreateAddressResponse saveAddress(@RequestBody @Valid CreateAddressRequest request) {
         Address address = new Address();
         address.setAddress(request.getAddress());
-        address.setGps(request.getGps());
-        //안전한지 아닌지 판단하는 로직 필요(백단에서 구현)
-        //GPS 판단 로직 필요 (프론트에서 받아와야 할 듯)
+        String gpsInput = request.getGps();
+        String realAddress = findRealAddress(gpsInput);
 
+        address.setGps(realAddress);
         String name = addressService.join(address);
         String risk = addressService.isRisk(name);
         Address real = addressService.findByAddress(name);
 
         return new CreateAddressResponse(real.getAddress(), real.getGps(), risk);
+    }
+
+    private String findRealAddress(String gpsInput) {
+        String[] gpsParts = gpsInput.split(" ");
+        Double latitude = Double.valueOf(gpsParts[1]);
+        Double longitude = Double.valueOf(gpsParts[3]);
+        String realAddress = geoService.getAddressFromCoordinates(latitude, longitude);
+        return realAddress;
     }
 
     @Data
